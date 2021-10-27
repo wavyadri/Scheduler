@@ -2,6 +2,7 @@ import React from 'react';
 import 'components/InterviewerListItem.scss';
 import classnames from 'classnames';
 
+// PROPS
 // id:number - the id of the interviewer
 // name:string - the name of the interviewer
 // avatar:url - a url to an image of the interviewer
