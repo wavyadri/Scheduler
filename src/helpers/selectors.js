@@ -10,3 +10,14 @@ export function getAppointmentsForDay(state, day) {
 
   return appointmentIds.map((id) => state.appointments[id]);
 }
+
+export function getInterview(state, interview) {
+  if (interview) {
+    return {
+      ...interview,
+      interviewer: state.interviewers[interview.interviewer],
+    };
+  }
+
+  return null;
+}
