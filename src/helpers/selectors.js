@@ -7,7 +7,6 @@ export function getAppointmentsForDay(state, day) {
 
   // iterate through arr, comparing where it's id matches the id of states.appointments and return that value
   const appointmentIds = filteredAppointments[0].appointments;
-
   return appointmentIds.map((id) => state.appointments[id]);
 }
 
@@ -17,9 +16,8 @@ export function getInterviewersForDay(state, day) {
     return [];
   }
 
-  const interviewerIds = filteredInterviewers[0].appointments;
-
-  return interviewerIds.map((id) => state.appointments[id]);
+  const interviewerIds = filteredInterviewers[0].interviewers;
+  return interviewerIds.map((id) => state.interviewers[id]);
 }
 
 export function getInterview(state, interview) {
