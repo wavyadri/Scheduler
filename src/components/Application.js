@@ -32,6 +32,10 @@ export default function Application(props) {
     );
   });
 
+  function bookInterview(id, interview) {
+    console.log(id, interview);
+  }
+
   useEffect(() => {
     Promise.all([
       axios.get('/api/days'),
