@@ -7,10 +7,11 @@ import 'components/Appointment/styles.scss';
 import useVisualMode from 'hooks/useVisualMode';
 import Status from './Status';
 import Confirm from './Confirm';
+import Error from './Error';
 
 // PROPS
 // id
-// time
+// timeappointment
 // interview
 // bookInterview
 
@@ -21,6 +22,8 @@ const SAVING = 'SAVING';
 const DELETING = 'DELETING';
 const CONFIRM = 'CONFIRM';
 const EDIT = 'EDIT';
+const ERROR_SAVE = 'ERROR_SAVE';
+const ERROR_DELETE = 'ERROR_DELETE';
 
 export default function Appointment(props) {
   const { mode, transition, back } = useVisualMode(
@@ -35,16 +38,22 @@ export default function Appointment(props) {
 
     transition(SAVING);
 
-    props.bookInterview(props.id, interview).then((res) => {
-      transition(SHOW);
-    });
+    props
+      .bookInterview(props.id, interview)
+      .then((res) => {
+        transition(SHOW);
+      })
+      .catch((error) => transition(ERROR_SAVE));
   };
 
-  const cancel = (id) => {
+  const destroy = (id) => {
     transition(DELETING);
-    props.cancelInterview(props.id).then((res) => {
-      transition(EMPTY);
-    });
+    props
+      .cancelInterview(props.id)
+      .then((res) => {
+        transition(EMPTY);
+      })
+      .catch((error) => transition(ERROR_DELETE));
   };
 
   return (
@@ -73,7 +82,19 @@ export default function Appointment(props) {
       )}
       {mode === SAVING && <Status message={'Saving...'} />}
       {mode === DELETING && <Status message={'Deleting...'} />}
-      {mode === CONFIRM && <Confirm onCancel={back} onConfirm={cancel} />}
+      {mode === CONFIRM && <Confirm onCancel={back} onConfirm={destroy} />}
+      {mode === ERROR_SAVE && (
+        <Error
+          message='Error! Could not book appointment.'
+          onClose={() => transition(CREATE)}
+        />
+      )}
+      {mode === ERROR_DELETE && (
+        <Error
+          message='Error! Could not cancel appointment.'
+          onClose={() => transition(SHOW)}
+        />
+      )}
     </article>
   );
 }
