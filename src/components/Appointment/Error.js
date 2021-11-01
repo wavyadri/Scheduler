@@ -5,7 +5,6 @@ import React from 'react';
 // onClose:Function to be called when the user clicks the Close button
 
 export default function Error(props) {
-  console.log(props.onClose);
   return (
     <main className='appointment__card appointment__card--error'>
       <section className='appointment__error-message'>

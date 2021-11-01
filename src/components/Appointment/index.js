@@ -43,7 +43,7 @@ export default function Appointment(props) {
       .then((res) => {
         transition(SHOW);
       })
-      .catch((error) => transition(ERROR_SAVE));
+      .catch((error) => transition(ERROR_SAVE, true));
   };
 
   const destroy = (id) => {
@@ -53,7 +53,7 @@ export default function Appointment(props) {
       .then((res) => {
         transition(EMPTY);
       })
-      .catch((error) => transition(ERROR_DELETE));
+      .catch((error) => transition(ERROR_DELETE, true));
   };
 
   return (
@@ -84,16 +84,10 @@ export default function Appointment(props) {
       {mode === DELETING && <Status message={'Deleting...'} />}
       {mode === CONFIRM && <Confirm onCancel={back} onConfirm={destroy} />}
       {mode === ERROR_SAVE && (
-        <Error
-          message='Error! Could not book appointment.'
-          onClose={() => transition(CREATE)}
-        />
+        <Error message='Error! Could not book appointment.' onClose={back} />
       )}
       {mode === ERROR_DELETE && (
-        <Error
-          message='Error! Could not cancel appointment.'
-          onClose={() => transition(SHOW)}
-        />
+        <Error message='Error! Could not cancel appointment.' onClose={back} />
       )}
     </article>
   );
