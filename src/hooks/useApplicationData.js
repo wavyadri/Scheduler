@@ -9,8 +9,6 @@ export default function useApplicationData() {
     interviewers: {},
   });
 
-  console.log(state.days);
-
   useEffect(() => {
     Promise.all([
       axios.get('/api/days'),

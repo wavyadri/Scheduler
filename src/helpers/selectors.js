@@ -10,8 +10,8 @@ export function getAppointmentsForDay(state, day) {
   return appointmentIds.map((id) => state.appointments[id]);
 }
 
-export function getInterviewersForDay(state, day) {
-  const filteredInterviewers = state.days.filter((days) => days.name === day);
+export function getInterviewersForDay(state, name) {
+  const filteredInterviewers = state.days.filter((day) => day.name === name);
   if (!filteredInterviewers.length) {
     return [];
   }
