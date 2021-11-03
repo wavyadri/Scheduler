@@ -35,6 +35,28 @@ export default function useApplicationData() {
     });
   };
 
+  // const updateSpots = (state, appointments, id) => {
+  //   // find day obj
+  //   const day = state.days.find((d) => d.name === state.day);
+
+  //   let spots = 0;
+  //   // iterate id's -> get appt obj
+  //   for (const id of day.appointments) {
+  //     const appointment = appointments[id];
+
+  //     if (!appointment.interview) {
+  //       spots++;
+  //     }
+  //   }
+
+  //   const newDay = { ...day, spots };
+
+  //   const mewDays = state.days.map((day) =>
+  //     day.name === state.day ? newDay : day
+  //   );
+  //   return newDays;
+  // };
+
   const bookInterview = (id, interview) => {
     const isEdit = state.appointments[id].interview !== null;
     const appointment = {
