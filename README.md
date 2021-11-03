@@ -8,15 +8,15 @@ This project uses React, JSX, Storybook, Jest, Cypress, Node, Express.
 
 # View existing appointments
 
-![View all appointments and available time slots](URL)
+![View all appointments and available time slots](https://github.com/wavyadri/Scheduler/blob/master/URL)
 
 # Create your own appointment
 
-![Form to create new appointment](URL)
+![Form to create new appointment](https://github.com/wavyadri/Scheduler/blob/master/URL)
 
 # Modify existing appointments
 
-![Delete an appointment](URL)
+![Delete an appointment](https://github.com/wavyadri/Scheduler/blob/master/URL)
 
 ## Setup
 
