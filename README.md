@@ -1,6 +1,8 @@
 # Interview Scheduler
 
-Scheduler is a simple interview booking app. Review which appointment slots are available by day and time. Book an interview with your interviewer of choice. Modify or delete existing interviews.
+Using the latest tools and techniques, we build and test a React application that allows users to book and cancel interviews. We combine a concise API with a WebSocket server to build a realtime experience.
+
+Review which appointment slots are available by day and time. Book an interview with your interviewer of choice. Modify or delete existing interviews.
 
 This project uses React, JSX, Storybook, Jest, Cypress, Node, Express.
 
