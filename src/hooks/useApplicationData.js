@@ -70,6 +70,7 @@ export default function useApplicationData() {
     };
 
     const days = updateSpots(id, state, 1);
+    console.log('days:', days);
 
     return axios
       .delete(`http://localhost:8001/api/appointments/${id}`)
@@ -79,6 +80,7 @@ export default function useApplicationData() {
           appointments,
           days,
         });
+        console.log('state:', state);
       });
   };
 
